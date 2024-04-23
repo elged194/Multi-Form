@@ -12,7 +12,6 @@ nextButton.addEventListener("click", () => {
   updateProgress();
 });
 
-
 prevButton.addEventListener("click", () => {
   active--;
   if (active < 1) {
@@ -26,7 +25,7 @@ const updateProgress = () => {
   console.log("active =>" + active);
 
   steps.forEach((step, i) => {
-    if (i == (active - 1)) {
+    if (i == active - 1) {
       step.classList.add("active");
       form_step[i].classList.add("active");
       console.log("i=>" + i);
@@ -36,13 +35,78 @@ const updateProgress = () => {
     }
   });
 
-
   if (active === 1) {
     prevButton.disabled = true;
-  } else if (active === steps.length) {
+  } else if (active === steps.length - 1) {
     nextButton.disabled = true;
   } else {
     prevButton.disabled = false;
     nextButton.disabled = false;
   }
 };
+
+// -------------------------------------------------------
+
+// -------------------- update Image -----------------------------------
+
+function updateImage() {
+  const selectItem = document.querySelector(".form-one select[name='maker']");
+  const outBotFirst = document.querySelector(".outBot-form-one");
+
+  switch (selectItem.value) {
+    case "bmw":
+      outBotFirst.src = "img/bmw.jpg";
+      break;
+    case "mercedes":
+      outBotFirst.src = "img/mercedes.jpg";
+      break;
+    case "kia":
+      outBotFirst.src = "img/kia.jpg";
+      break;
+    case "toyota":
+      outBotFirst.src = "img/toyota.jpg";
+      break;
+    case "mg":
+      outBotFirst.src = "img/mg.jpg";
+      break;
+    case "hyundai":
+      outBotFirst.src = "img/hyundai.jpg";
+      break;
+    default:
+      outBotFirst.src = "";
+  }
+}
+
+document
+  .querySelector(".form-one select[name='maker']")
+  .addEventListener("change", updateImage);
+
+updateImage();
+
+// ----------------------------------------------------------
+
+// show Period
+const period = [
+  {
+    id: 1,
+    name: "1 month",
+    price: 1000,
+  },
+];
+
+const showPeriod = period.map((e) => {
+  return `
+  <div>
+    <h1>${e.name}</h1>
+    <p>${e.id}</p>
+    <h6>${e.price}</h6>
+  </div>
+  `;
+});
+
+function showData() {
+  const form_Five = document.querySelector(".form-Five");
+  document.getElementById("show").innerHTML = showPeriod;
+  form_step.classList.remove('active');
+  form_Five.classList.add("active");
+}

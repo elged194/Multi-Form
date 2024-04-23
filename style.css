@@ -1,25 +1,31 @@
-:root{
+:root {
     --main-color: #6c5ce7;
-    --secondary-color:#a29bfe;
+    --secondary-color: #a29bfe;
     --lighter-collor: #e0e0e7;
-    --ligt-color:#b0b0c0;
-    --dark-color:#52505e;
+    --ligt-color: #b0b0c0;
+    --dark-color: #52505e;
 
-    --font-smaller:14px;
+    --font-smaller: 14px;
     --font-bigger: 20px;
 }
-*{
+
+* {
     margin: 0;
     padding: 0;
 }
-*,::before,::after{
+
+*,
+::before,
+::after {
     box-sizing: border-box;
 }
-html{
+
+html {
     scroll-behavior: smooth;
 }
-body{
-    font-family: 'Nunite' , sans-serif;
+
+body {
+    font-family: 'Nunite', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.8;
@@ -29,36 +35,47 @@ body{
     align-items: center;
     justify-content: center;
 }
-input , select{
+
+input,
+select {
     padding: 10px 5px;
     border-radius: 6px;
     border: solid 1px #b0b0c0;
 }
-a{
+
+a {
     text-decoration: none;
     color: inherit;
 }
-ul{
+
+ul {
     list-style: none;
 }
-h1,h2,h3{
+
+h1,
+h2,
+h3 {
     font-weight: 700;
     line-height: 1.25;
-    margin: 0 0  0.5em;
+    margin: 0 0 0.5em;
 }
-img{
+
+img {
     max-width: 100%;
     vertical-align: middle;
 }
-.site{
+
+.site {
     width: 90%;
 }
-.container{
+
+.container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 2em;
 }
-.form-box{
+
+.form-box {
     display: flex;
     flex-direction: column;
     margin-top: 3em;
@@ -69,36 +86,40 @@ img{
 }
 
 /* =======>====> progress */
-.form-box .progress{
+.form-box .progress {
     position: relative;
     padding: 1em;
 }
-.logo{
+
+.logo {
     font-size: 1.75em;
     font-weight: 800;
     color: var(--dark-color);
     padding: 40px 48px;
     text-align: center;
 }
-.logo span{
+
+.logo span {
     color: var(--main-color);
 }
 
 /*======>====> progress steps  */
-.progress ul.progress-steps{
+.progress ul.progress-steps {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 2em;
 }
-.progress ul.progress-steps li{
+
+.progress ul.progress-steps li {
     position: relative;
     display: flex;
     align-items: flex-start;
     margin-bottom: 2em;
 }
-.progress ul.progress-steps li > span{
+
+.progress ul.progress-steps li>span {
     position: relative;
     width: 40px;
     height: 40px;
@@ -111,20 +132,22 @@ img{
     background-color: var(--ligt-color);
     z-index: 1;
 }
-.progress ul.progress-steps li.active > span{
+
+.progress ul.progress-steps li.active>span {
     color: white;
     background-color: var(--main-color);
     border: 4px solid var(--secondary-color);
     z-index: 1;
-    
+
 }
-.progress ul.progress-steps li p span{
+
+.progress ul.progress-steps li p span {
     font-size: var(--font-smaller);
     color: var(--ligt-color);
     display: none;
 }
 
-.progress ul li p{
+.progress ul li p {
     position: absolute;
     top: -2em;
     font-size: 12px;
@@ -132,27 +155,30 @@ img{
 
 
 /* ==============> form */
-.form-box form{
+.form-box form {
     width: 100%;
     padding: 3em 1em;
     background-color: white;
-    border-radius: 30px 30px 15px 15px ;
+    border-radius: 30px 30px 15px 15px;
 }
 
-form > div{
+form>div {
     max-width: 400px;
     margin: 0 auto;
 }
-form > div p{
+
+form>div p {
     color: var(--ligt-color);
     margin-bottom: 2em;
 }
-form > div > div:not(.checkbox){
+
+form>div>div:not(.checkbox) {
     display: flex;
     flex-direction: column;
     margin-bottom: 2em;
 }
-form :where(input.select){
+
+form :where(input.select) {
     height: 40px;
     padding: 0 1em;
     border-radius: 7px;
@@ -160,33 +186,31 @@ form :where(input.select){
     border: 1px solid var(--ligt-color);
     background-color: transparent;
 }
-form label{
+
+form label {
     font-size: var(--font-smaller);
     margin-bottom: 0.5em;
     font-weight: 600;
 }
-form .grouping{
+
+form .grouping {
     display: flex;
 }
-form .grouping input{
+
+form .grouping input {
     max-width: 70px;
     text-align: center;
     margin-right: 1em;
 }
-form .checkbox input{
+
+form .checkbox input {
     height: auto;
 }
-
-
-
-
-
-
 
 /* ----------------------------------------------------- */
 
 
-form > div:not(.btn-group){
+form>div:not(.btn-group) {
     display: none;
     -webkit-animation: fadeIn .6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
     animation: fadeIn .6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
@@ -194,77 +218,80 @@ form > div:not(.btn-group){
 
 @keyframes fadeIn {
     0% {
-        opacity: 0 ;
+        opacity: 0;
         -webkit-transform: translateY(10%);
         transform: translateY(10%);
     }
+
     100% {
-        opacity: 1 ;
+        opacity: 1;
         -webkit-transform: translateY(0);
         transform: translateY(0);
     }
 }
 
-form > div.active{
+form>div.active {
     display: block;
 }
-
 
 /* ----------------------------------------------------- */
 
 
-
-
-
 /* =================> Button  */
-.btn-group{
+.btn-group {
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
     margin-top: 2em;
 }
-.btn-group [class*="btn-"]{
+
+.btn-group [class*="btn-"] {
     background-color: var(--main-color);
     color: white;
     padding: 1em 2.5em;
     border: 4px solid var(--secondary-color);
     border-radius: 30px;
     cursor: pointer;
-    -webkit-transition: background-color .3s , border-color .3s ease-out ;
-    transition: background-color .3s , border-color .3s ease-out ;
+    -webkit-transition: background-color .3s, border-color .3s ease-out;
+    transition: background-color .3s, border-color .3s ease-out;
 }
-.btn-group [class*="btn-"]:disabled{
+
+.btn-group [class*="btn-"]:disabled {
     background-color: var(--dark-color);
     border-color: var(--ligt-color);
     cursor: text;
 }
-.btn-group [class*="btn-"]:hover:not(:disabled){
+
+.btn-group [class*="btn-"]:hover:not(:disabled) {
     background-color: var(--dark-color);
     border-color: var(--ligt-color);
 }
 
-/* --------------------- */
+/* ------------------------------------- */
+/* ======== Show Button Submit ============= */
 
-/* .btn-group .btn-submit ,
-.form-three.active ~ .btn-group .btn-submit{
+.btn-group .btn-submit,
+.form-four.active~.btn-group .btn-submit {
     display: none;
 }
-.form-three.active ~ .btn-group .btn-submit{
+
+.form-four.active~.btn-group .btn-submit {
     display: block;
 }
-.form-three ~ .btn-group{
+
+.form-four~.btn-group {
     justify-content: space-between;
-} */
+}
 
-/* --------------------- */
+/* -------------------------------------- */
 
 
-::placeholder{
+::placeholder {
     color: var(--ligt-color);
 }
 
 
-.form-four .country{
+.form-four .country {
     display: flex;
     flex-direction: column;
 }
@@ -275,22 +302,26 @@ form > div.active{
 
 
 @media screen and (min-width:768px) {
-    .form-box{
+    .form-box {
         flex-direction: row;
     }
-    .form-box .progress{
+
+    .form-box .progress {
         flex: 1 0 35%;
         min-width: 300px;
         padding: 3em;
     }
-    .logo{
+
+    .logo {
         margin: -48px -48px 48px;
     }
-    .progress ul.progress-steps{
+
+    .progress ul.progress-steps {
         flex-direction: column;
         gap: 0;
     }
-    .progress ul.progress-steps li:not(:last-child)::before{
+
+    .progress ul.progress-steps li:not(:last-child)::before {
         content: "";
         position: absolute;
         left: 20px;
@@ -299,16 +330,19 @@ form > div.active{
         height: 65px;
         background-color: var(--ligt-color);
     }
-    .form-box form{
+
+    .form-box form {
         padding: 3em;
         border-radius: 0 15px 15px 0;
     }
+
     .progress ul li p {
         position: relative;
         top: auto;
         font-size: inherit;
     }
-    .progress ul.progress-steps li p span{
+
+    .progress ul.progress-steps li p span {
         display: block;
     }
 }
