@@ -284,18 +284,72 @@ form>div.active {
 }
 
 /* -------------------------------------- */
-
-
 ::placeholder {
     color: var(--ligt-color);
 }
-
 
 .form-four .country {
     display: flex;
     flex-direction: column;
 }
 
+/* =========> form-Five */
+.form-Five {
+    max-width: 600px;
+}
+
+.form-Five .logo {
+    text-align: start;
+    font-size: 1.15em;
+    margin: 0;
+    padding: 0;
+}
+
+#show {
+    border: 1px solid;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.form-Five .information {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-Five .information>div {
+    width: 50%;
+}
+
+.form-Five .information>div>h5,
+.form-Five .information>div>p {
+    background-color: #6c5ce71f;
+    margin: 3px;
+    padding: 0 2px;
+}
+
+.form-Five .information>div>p {
+    font-size: 12px;
+    color: var(--dark-color);
+}
+
+.form-Five table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.form-Five td,
+.form-Five th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.form-Five th{
+    background-color: #dddddd;
+}
 
 
 
@@ -344,5 +398,19 @@ form>div.active {
 
     .progress ul.progress-steps li p span {
         display: block;
+    }
+
+
+
+}
+@media screen and (max-width:768px) {
+    table{
+        display: grid;
+    }
+    tr{
+        display: grid;
+    }
+    tbody{
+        display: flex;
     }
 }

@@ -18,23 +18,23 @@
                     <ul class="progress-steps">
                         <li class="step active">
                             <span>1</span>
-                            <p>personal <br> <span>25 secs to complete</span></p>
+                            <p>Step One <br> <span>25 secs to complete</span></p>
                         </li>
                         <li class="step ">
                             <span>2</span>
-                            <p>Contact <br> <span>60 secs to complete</span></p>
+                            <p>Step Two <br> <span>60 secs to complete</span></p>
                         </li>
                         <li class="step ">
                             <span>3</span>
-                            <p>Security <br> <span>30 secs to complete</span></p>
+                            <p>Step Three <br> <span>30 secs to complete</span></p>
                         </li>
                         <li class="step ">
                             <span>4</span>
-                            <p>Security <br> <span>30 secs to complete</span></p>
+                            <p>Step Four <br> <span>30 secs to complete</span></p>
                         </li>
                         <li class="step ">
                             <span>5</span>
-                            <p>Security <br> <span>30 secs to complete</span></p>
+                            <p>Step Five <br> <span>30 secs to complete</span></p>
                         </li>
                     </ul>
                 </div>
@@ -46,9 +46,10 @@
                         <div class="bg-svg"></div>
                         <h2>persnol information </h2>
                         <p>Enter your persnol information correctiy</p>
+
                         <div>
                             <label for="cars">Type of Model*:</label>
-                            <select name="cars" required>
+                            <select name="cars" id="typeModel">
                                 <option value="">...</option>
                                 <option value="Singles">Singles</option>
                                 <option value="Companies">Companies</option>
@@ -56,7 +57,7 @@
                         </div>
                         <div>
                             <label for="maker">car maker*:</label>
-                            <select name="maker" required>
+                            <select name="maker" id="carMaker">
                                 <option value="">...</option>
                                 <option value="bmw">BMW</option>
                                 <option value="mercedes">Mercedes</option>
@@ -68,7 +69,7 @@
                         </div>
                         <div>
                             <label for="cars">Car model*:</label>
-                            <select name="cars" required>
+                            <select name="cars" id="carModel">
                                 <option value="">...</option>
                                 <option value="iX">iX</option>
                                 <option value="i7">i7</option>
@@ -80,7 +81,7 @@
                         </div>
                         <div>
                             <label for="manufacture">Year of car manufacture*:</label>
-                            <select name="manufacture" required>
+                            <select name="manufacture" id="year">
                                 <option value="">...</option>
                                 <option value="2024">2024</option>
                                 <option value="2023">2023</option>
@@ -101,35 +102,35 @@
                         <h2>Contact </h2>
 
                         <div>
-                            <label for="">Plot Name</label>
-                            <input type="text" placeholder="Plot Name">
+                            <label for="">Item Name</label>
+                            <input type="text" placeholder="Plot Name" id="itemName">
                         </div>
 
                         <div>
-                            <label for="">Number of Pieces*</label>
-                            <input type="number" placeholder="Number of Pieces">
+                            <label for="">Number of Item*</label>
+                            <input type="number" placeholder="Number of Pieces" id="numberItem">
                         </div>
 
 
                         <div>
                             <label for="">Serial number of the piece*</label>
-                            <input type="text" placeholder="Serial number of the piece">
+                            <input type="text" placeholder="Serial number of the piece" id="serialNumber">
                         </div>
 
                         <div>
                             <label for="">Car body number*</label>
-                            <input type="text" placeholder="Car body number">
+                            <input type="text" placeholder="Car body number" id="Car_body_number">
                         </div>
 
 
                         <div>
                             <label for="">Plot Description</label>
-                            <textarea name="" id="" cols="30" rows="4" dir="auto"></textarea>
+                            <textarea name="" id="Plot_Description" cols="30" rows="4" dir="auto"></textarea>
                         </div>
 
                         <div>
                             <label for="">Photos of each piece</label>
-                            <input type="file">
+                            <input type="file" id="Photos_piece">
                         </div>
                     </div>
 
@@ -139,20 +140,20 @@
                         <h2>Security</h2>
 
                         <div>
-                            <label for="">Full name*</label>
-                            <input type="text" placeholder="Full name" required>
+                            <label for="">Name*</label>
+                            <input type="text" placeholder="Full name">
                         </div>
 
                         <div>
                             <label for="">E-mail address*</label>
-                            <input type="email" placeholder="E-mail address" required>
+                            <input type="email" placeholder="E-mail address" id="email">
                         </div>
 
 
                         <div>
                             <label for="">phone number, Country Flag and, country code*</label>
                             <div>
-                                <select name="" required>
+                                <select name="" id="country-phone" required >
                                     <option value="">...</option>
                                     <option value="eg">eg</option>
                                     <option value="usa">usa</option>
@@ -161,7 +162,7 @@
                                     <option value="hh">hh</option>
                                     <option value="mm">mm</option>
                                 </select>
-                                <select name="" required>
+                                <select name="" id="country-code" required>
                                     <option value="">...</option>
                                     <option value="+2">+2</option>
                                     <option value="+95">+95</option>
@@ -170,7 +171,8 @@
                                     <option value="+35">+35</option>
                                     <option value="+44">+44</option>
                                 </select>
-                                <input type="tel" placeholder="Serial number " required
+
+                                <input type="tel" placeholder="Serial number " id="phone-number"
                                     style="width:calc(100% - 127px);">
                             </div>
 
@@ -194,10 +196,10 @@
 
                         <div>
                             <label for="">Type of shipment</label>
-                            <select name="" required>
+                            <select name="" required id="Type-shipment">
                                 <option value="">...</option>
-                                <option value="eg">Me</option>
-                                <option value="usa">My Friend</option>
+                                <option value="Me">Me</option>
+                                <option value="My Friend">My Friend</option>
                             </select>
                         </div>
 
@@ -207,7 +209,7 @@
                         </div>
                         <div>
                             <label for="">Full name in English *</label>
-                            <input type="email" placeholder="Full name in English" required>
+                            <input type="email" placeholder="Full name in English" required id="name">
                         </div>
 
                         <div>
@@ -215,7 +217,7 @@
 
                             <div class="country">
                                 <label for="">Country *</label>
-                                <select name="" required>
+                                <select name="" id="country">
                                     <option value="">...</option>
                                     <option value="Egypt">Egypt</option>
                                     <option value="Palestine">Palestine</option>
@@ -227,22 +229,22 @@
 
                             <div class="country">
                                 <label for="">City *</label>
-                                <input type="text" placeholder="city" required>
+                                <input type="text" placeholder="city" id="City" required>
                             </div>
 
                             <div class="country">
-                                <label for="">Neighborhood *</label>
-                                <input type="text" placeholder="Neighborhood" required>
+                                <label for="">The Neighborhood *</label>
+                                <input type="text" placeholder="The Neighborhood" id="Neighborhood" required>
                             </div>
 
                             <div class="country">
                                 <label for="">P. O. Box number *</label>
-                                <input type="text" placeholder="P. O. Box number" required>
+                                <input type="text" placeholder="P. O. Box number" id="Box-number" required>
                             </div>
 
                             <div class="country">
                                 <label for="">Description of the housing address *</label>
-                                <textarea name="" id="" cols="30" rows="4" dir="auto"
+                                <textarea name="" id="housing-address" cols="30" rows="4" dir="auto"
                                     placeholder="Description of the housing address" style="padding: 5px;"></textarea>
                             </div>
 
@@ -285,22 +287,55 @@
                         <div class="bg-svg"></div>
                         <h2>persnol information </h2>
                         <p>Enter your persnol information correctiy</p>
-
-
                         <div id="show">
-                            
+                            <!-- <div class="logo"><a href=""><span>.Web</span>Design</a></div>
+                            <div class="information">
+                                <div dir="ltr">
+                                    <h5> Cairo , Nasr City , 285</h5>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing
+                                    </p>
+                                </div>
+                                <div dir="rtl">
+                                    <h5> Hussein Sadiq Elged</h5>
+                                    <h5> elged194@gmail.com</h5>
+                                    <h5> +2 01098351052</h5>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <div class="">
+                                <table id="customers">
+                                    <tr>
+                                        <th>Number of Items </th>
+                                        <th>Name Item</th>
+                                        <th>Shipping Type</th>
+                                        <th>serial number of item</th>
+                                        <th>Chassis number</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Name </td>
+                                        <td>10</td>
+                                        <td>100123</td>
+                                        <td>00001</td>
+                                        <td>Germany</td>
+                                    </tr>
+                                </table>
+                            </div> -->
                         </div>
                     </div>
 
                     <div class="btn-group">
                         <button type="button" class="btn-prev" disabled>Back</button>
                         <button type="button" class="btn-next">Next Step</button>
-                        <button type="button" class="btn-submit" onclick="showData()" >Submit</button>
+                        <button type="button" class="btn-submit" id="submit">Submit</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
+    <script src="invoice.js"></script>
     <script src="active.js"></script>
 </body>
 
