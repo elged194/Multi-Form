@@ -70,7 +70,7 @@ submit.onclick = () => {
 
     const show = invoice.map((e) => {
       return `
-    <div class="logo"><a href=""><span>.Web</span>Design</a></div>
+    <div class="logo"><a href=""><span>.Web</span>Form</a></div>
     <div class="information">
         <div dir="ltr">
             <h5> ${e.country} , ${e.city} , ${e.neighborhood} , ${e.body_number} </h5>
