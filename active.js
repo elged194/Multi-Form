@@ -1,56 +1,156 @@
-const nextButton = document.querySelector(".btn-next");
-const prevButton = document.querySelector(".btn-prev");
-const steps = document.querySelectorAll(".step");
-const form_step = document.querySelectorAll(".form-step");
-let active = 1;
+// ------------------- / validateStep click / ------------------------------
+let currentStep = 1;
 
-nextButton.addEventListener("click", () => {
-  active++;
-  if (active > steps.length) {
-    active = steps.length;
-  }
-  updateProgress();
-});
+function validateStep(step) {
+  if (step === 1) {
+    const input1 = document.querySelectorAll(".form-one [required]");
+    let isValid = true;
 
-prevButton.addEventListener("click", () => {
-  active--;
-  if (active < 1) {
-    active = 1;
-  }
-  updateProgress();
-});
+    input1.forEach((input) => {
+      if (!input.value.trim()) {
+        isValid = false;
+      }
+    });
 
-const updateProgress = () => {
-  console.log("steps.length =>" + steps.length);
-  console.log("active =>" + active);
-
-  steps.forEach((step, i) => {
-    if (i == active - 1) {
-      step.classList.add("active");
-      form_step[i].classList.add("active");
-      console.log("i=>" + i);
-    } else {
-      step.classList.remove("active");
-      form_step[i].classList.remove("active");
+    if (!isValid) {
+      ShowError();
+      return;
     }
-  });
 
-  if (active === 1) {
-    prevButton.disabled = true;
-  } else if (active === steps.length ) {
-    nextButton.disabled = true;
-  } else {
-    prevButton.disabled = false;
-    nextButton.disabled = false;
+    document.querySelector(".step2").classList.add("active");
+  } else if (step === 2) {
+    const input2 = document.querySelectorAll(".form-two [required]");
+    let isValid = true;
+
+    input2.forEach((input) => {
+      if (!input.value.trim()) {
+        isValid = false;
+      }
+    });
+
+    if (!isValid) {
+      ShowError();
+      return;
+    }
+
+    document.querySelector(".step3").classList.add("active"); // add active class to step 3
+  } else if (step === 3) {
+    const input3 = document.querySelectorAll(".form-three [required]");
+    const pass = document.getElementById("password");
+    const conf_pass = document.getElementById("Confirm-Password");
+
+    let isValid = true;
+
+    input3.forEach((input) => {
+      if (!input.value.trim()) {
+        isValid = false;
+      }
+    });
+
+    if (!isValid) {
+      ShowError();
+      return;
+    } else if (pass.value != conf_pass.value) {
+      errorPass();
+      return;
+    }
+
+    document.querySelector(".step4").classList.add("active"); //add active class to step 4
+  } else if (step === 4) {
+    const input4 = document.querySelectorAll(".form-four [required]");
+    let isValid = true;
+
+    input4.forEach((input) => {
+      if (!input.value.trim()) {
+        isValid = false;
+      }
+    });
+
+    if (!isValid) {
+      ShowError();
+      return;
+    }
+
+    document.querySelector(".step5").classList.add("active"); // add active class to step 5
+  } else if (step === 5) {
+    const input5 = document.querySelectorAll(".form-Five [required]");
+    let isValid = true;
+
+    input5.forEach((input) => {
+      if (!input.value.trim()) {
+        isValid = false;
+      }
+    });
+
+    if (!isValid) {
+      ShowError();
+      return;
+    }
+
+    document.querySelector(".progress-steps").style.display = "none"; // hide progress bar
   }
-};
 
-// -------------------------------------------------------
+  showStep(step + 1);
+}
+function showStep(step) {
+  document.getElementById("step" + currentStep).style.display = "none"; // hide current step
+  document.getElementById("step" + step).style.display = "block"; // show next step
+  currentStep = step; // update current step
+}
+
+function prevStep() {
+  showStep(currentStep - 1); // show previous step
+}
+
+// ------------------- / cancel order / ------------------------------
+const del_order = document.querySelector(".cancel-order");
+del_order.onclick = () => {
+  setTimeout(() => {
+    window.location.reload(); // reload page
+  }, 500);
+};
+// ----------------------- / update Type model /----------------------
+function updateType_model() {
+  const type_model = document.getElementById("typeModel");
+  const number_item = document.getElementById("numberItem");
+
+  switch (type_model.value) {
+    case "Singles":
+      number_item.min = 1;
+      number_item.value = 1;
+      break;
+    case "Companies":
+      number_item.min = 10;
+      number_item.value = 10;
+      break;
+  }
+}
+
+document
+  .getElementById("typeModel")
+  .addEventListener("change", updateType_model);
+
+// ------------------- / Show Error Snackbar / ------------------------------
+function ShowError() {
+  var snack = document.getElementById("ShowError");
+  snack.className = "show"; // show the error
+  setTimeout(() => {
+    snack.className = snack.className.replace("show", ""); // remove the show class to allow the user to see the error
+  }, 3000);
+}
+
+function errorPass() {
+  var snack = document.getElementById("errorPass");
+  snack.className = "show"; // show the error
+  setTimeout(() => {
+    snack.className = snack.className.replace("show", ""); // remove the show class to allow the user to see the error
+  }, 3000);
+}
 
 // -------------------- update Image -----------------------------------
 
 function updateImage() {
-  const selectItem = document.querySelector(".form-one select[name='maker']");
+  const selectItem = document.getElementById("carMaker");
   const outBotFirst = document.querySelector(".outBot-form-one");
 
   switch (selectItem.value) {
@@ -77,36 +177,8 @@ function updateImage() {
   }
 }
 
-document
-  .querySelector(".form-one select[name='maker']")
-  .addEventListener("change", updateImage);
+document.getElementById("carMaker").addEventListener("change", updateImage);
 
 updateImage();
 
-// ----------------------------------------------------------
-
-// show Period
-const period = [
-  {
-    id: 1,
-    name: "1 month",
-    price: 1000,
-  },
-];
-
-const showPeriod = period.map((e) => {
-  return `
-  <div>
-    <h1>${e.name}</h1>
-    <p>${e.id}</p>
-    <h6>${e.price}</h6>
-  </div>
-  `;
-});
-
-function showData() {
-  const form_Five = document.querySelector(".form-Five");
-  document.getElementById("show").innerHTML = showPeriod;
-  form_step.classList.remove('active');
-  form_Five.classList.add("active");
-}
+// -------------------- / / -----------------------------------

@@ -31,40 +31,45 @@ const address_description = document.getElementById("housing-address");
 // -------- Invoice Array of Object -----------
 const invoice = [];
 
+let isDataAdded = false;
+
 submit.onclick = () => {
-  let newInvoice = {
-    // -------- Form One -----------
-    type_model: type_model.value,
-    car_maker: car_maker.value,
-    car_model: car_model.value,
-    year: year.value,
-    // -------- Form Two -----------
-    item_name: item_name.value,
-    number_Item: number_Item.value,
-    serial_number: serial_number.value,
-    body_number: body_number.value,
-    Plot_Descr: Plot_Descr.value,
-    // -------- Form three -----------
-    email: email.value,
-    phone_number: phone_number.value,
-    country_phone: country_phone.value,
-    country_code: country_code.value,
-    // -------- Form four -----------
-    type_shipment: type_shipment.value,
-    fool_name: fool_name.value,
-    country: country.value,
-    city: city.value,
-    neighborhood: neighborhood.value,
-    box_number: box_number.value,
-    address_description: address_description.value,
-  };
+  validateStep(4);
 
-  invoice.push(newInvoice); //Add Data Invoice Array of Object
+  if (!isDataAdded) {
+    let newInvoice = {
+      // -------- Form One -----------
+      type_model: type_model.value,
+      car_maker: car_maker.value,
+      car_model: car_model.value,
+      year: year.value,
+      // -------- Form Two -----------
+      item_name: item_name.value,
+      number_Item: number_Item.value,
+      serial_number: serial_number.value,
+      body_number: body_number.value,
+      Plot_Descr: Plot_Descr.value,
+      // -------- Form three -----------
+      email: email.value,
+      phone_number: phone_number.value,
+      country_phone: country_phone.value,
+      country_code: country_code.value,
+      // -------- Form four -----------
+      type_shipment: type_shipment.value,
+      fool_name: fool_name.value,
+      country: country.value,
+      city: city.value,
+      neighborhood: neighborhood.value,
+      box_number: box_number.value,
+      address_description: address_description.value,
+    };
 
-  // -------- Invoice Array of Object -----------
+    invoice.push(newInvoice); //Add Data Invoice Array of Object
 
-  const show = invoice.map((e) => {
-    return `
+    // -------- Invoice Array of Object -----------
+
+    const show = invoice.map((e) => {
+      return `
     <div class="logo"><a href=""><span>.Web</span>Design</a></div>
     <div class="information">
         <div dir="ltr">
@@ -100,9 +105,10 @@ submit.onclick = () => {
         </table>
     </div>
     `;
-  });
+    });
 
-  document.getElementById("show").innerHTML = show;
+    document.getElementById("show").innerHTML = show;
+    // -------- Invoice Array of Object -----------
+    isDataAdded = true;
+  }
 };
-
-// -------- Invoice Array of Object -----------

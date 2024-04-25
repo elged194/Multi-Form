@@ -16,48 +16,53 @@
                 <div class="progress">
                     <div class="logo"><a href=""><span>.Web</span>Design</a></div>
                     <ul class="progress-steps">
-                        <li class="step active">
+                        <li class="step1 active">
                             <span>1</span>
                             <p>Step One <br> <span>25 secs to complete</span></p>
                         </li>
-                        <li class="step ">
+                        <li class="step2 ">
                             <span>2</span>
                             <p>Step Two <br> <span>60 secs to complete</span></p>
                         </li>
-                        <li class="step ">
+                        <li class="step3 ">
                             <span>3</span>
                             <p>Step Three <br> <span>30 secs to complete</span></p>
                         </li>
-                        <li class="step ">
+                        <li class="step4 ">
                             <span>4</span>
                             <p>Step Four <br> <span>30 secs to complete</span></p>
                         </li>
-                        <li class="step ">
+                        <li class="step5 ">
                             <span>5</span>
                             <p>Step Five <br> <span>30 secs to complete</span></p>
                         </li>
                     </ul>
                 </div>
+
                 <form action="">
+                    <!-- Show error required Message -->
+                    <div id="ShowError"> please fill in Step..! </div>
+                    <!-- Show error password Message -->
+                    <div id="errorPass"> The password does not match, please check..! </div>
 
                     <!-- form-one -->
-                    <div class="form-one form-step active">
+                    <div class="form-one form-step active " id="step1">
 
                         <div class="bg-svg"></div>
                         <h2>persnol information </h2>
                         <p>Enter your persnol information correctiy</p>
 
                         <div>
-                            <label for="cars">Type of Model*:</label>
-                            <select name="cars" id="typeModel">
+                            <label>Type of Model*:</label>
+                            <select form="" id="typeModel" required>
                                 <option value="">...</option>
                                 <option value="Singles">Singles</option>
                                 <option value="Companies">Companies</option>
                             </select>
                         </div>
                         <div>
-                            <label for="maker">car maker*:</label>
-                            <select name="maker" id="carMaker">
+                            <label>car maker*:</label>
+                            <select form="" id="carMaker" required>
                                 <option value="">...</option>
                                 <option value="bmw">BMW</option>
                                 <option value="mercedes">Mercedes</option>
@@ -68,8 +73,8 @@
                             </select>
                         </div>
                         <div>
-                            <label for="cars">Car model*:</label>
-                            <select name="cars" id="carModel">
+                            <label>Car model*:</label>
+                            <select form="" id="carModel" required>
                                 <option value="">...</option>
                                 <option value="iX">iX</option>
                                 <option value="i7">i7</option>
@@ -80,8 +85,8 @@
                             </select>
                         </div>
                         <div>
-                            <label for="manufacture">Year of car manufacture*:</label>
-                            <select name="manufacture" id="year">
+                            <label>Year of car manufacture*:</label>
+                            <select form="" id="year" required>
                                 <option value="">...</option>
                                 <option value="2024">2024</option>
                                 <option value="2023">2023</option>
@@ -94,53 +99,60 @@
                         <div>
                             <img src="" alt="" class="outBot-form-one">
                         </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn-prev" disabled>Back</button>
+                            <button type="button" class="btn-next" onclick="validateStep(1)">Next Step</button>
+                        </div>
                     </div>
 
                     <!-- form-two -->
-                    <div class="form-two form-step">
+                    <div class="form-two form-step " id="step2">
                         <div class="bg-svg"></div>
                         <h2>Contact </h2>
 
                         <div>
-                            <label for="">Item Name</label>
-                            <input type="text" placeholder="Plot Name" id="itemName">
+                            <label>Item Name *</label>
+                            <input type="text" placeholder="Plot Name" id="itemName" required>
                         </div>
 
                         <div>
-                            <label for="">Number of Item*</label>
-                            <input type="number" placeholder="Number of Pieces" id="numberItem">
-                        </div>
-
-
-                        <div>
-                            <label for="">Serial number of the piece*</label>
-                            <input type="text" placeholder="Serial number of the piece" id="serialNumber">
+                            <label for="">Number of Item *</label>
+                            <input type="number" min="1" placeholder="Number of Pieces" id="numberItem" required>
                         </div>
 
                         <div>
-                            <label for="">Car body number*</label>
-                            <input type="text" placeholder="Car body number" id="Car_body_number">
+                            <label for="">Serial number of the piece *</label>
+                            <input type="text" placeholder="Serial number of the piece" id="serialNumber" required>
                         </div>
 
+                        <div>
+                            <label for="">Car body number *</label>
+                            <input type="text" placeholder="Car body number" id="Car_body_number" required>
+                        </div>
 
                         <div>
                             <label for="">Plot Description</label>
-                            <textarea name="" id="Plot_Description" cols="30" rows="4" dir="auto"></textarea>
+                            <textarea id="Plot_Description" cols="30" rows="4" dir="auto"></textarea>
                         </div>
 
                         <div>
                             <label for="">Photos of each piece</label>
                             <input type="file" id="Photos_piece">
                         </div>
+
+                        <div class="btn-group">
+                            <button type="button" class="btn-prev" onclick="prevStep()">Back</button>
+                            <button type="submit" class="btn-next" onclick="validateStep(2)">Next Step</button>
+                        </div>
                     </div>
 
                     <!-- form-three -->
-                    <div class="form-three form-step">
+                    <div class="form-three form-step " id="step3">
                         <div class="bg-svg"></div>
                         <h2>Security</h2>
 
                         <div>
-                            <label for="">Name*</label>
+                            <label>Name*</label>
                             <input type="text" placeholder="Full name">
                         </div>
 
@@ -149,11 +161,10 @@
                             <input type="email" placeholder="E-mail address" id="email">
                         </div>
 
-
                         <div>
-                            <label for="">phone number, Country Flag and, country code*</label>
+                            <label>phone number, Country Flag and, country code*</label>
                             <div>
-                                <select name="" id="country-phone" required >
+                                <select form="" id="country-phone" required>
                                     <option value="">...</option>
                                     <option value="eg">eg</option>
                                     <option value="usa">usa</option>
@@ -162,7 +173,7 @@
                                     <option value="hh">hh</option>
                                     <option value="mm">mm</option>
                                 </select>
-                                <select name="" id="country-code" required>
+                                <select form="" id="country-code" required>
                                     <option value="">...</option>
                                     <option value="+2">+2</option>
                                     <option value="+95">+95</option>
@@ -175,28 +186,32 @@
                                 <input type="tel" placeholder="Serial number " id="phone-number"
                                     style="width:calc(100% - 127px);">
                             </div>
-
-
                         </div>
 
                         <div>
                             <label for="">Password*</label>
-                            <input type="password" placeholder="password" required>
+                            <input type="password" placeholder="password" id="password" required>
                         </div>
+
                         <div>
                             <label for="">Confirm Password*</label>
-                            <input type="password" placeholder="Confirm Password" required>
+                            <input type="password" placeholder="Confirm Password" id="Confirm-Password" required>
+                        </div>
+
+                        <div class="btn-group">
+                            <button type="button" class="btn-prev" onclick="prevStep()">Back</button>
+                            <button type="submit" class="btn-next" onclick="validateStep(3)">Next Step</button>
                         </div>
                     </div>
 
                     <!-- form-four -->
-                    <div class="form-four form-step">
+                    <div class="form-four form-step " id="step4">
                         <div class="bg-svg"></div>
                         <h2>Security</h2>
 
                         <div>
-                            <label for="">Type of shipment</label>
-                            <select name="" required id="Type-shipment">
+                            <label>Type of shipment</label>
+                            <select form="" required id="Type-shipment">
                                 <option value="">...</option>
                                 <option value="Me">Me</option>
                                 <option value="My Friend">My Friend</option>
@@ -204,11 +219,11 @@
                         </div>
 
                         <div>
-                            <label for="">Full name in Arabic *</label>
+                            <label>Full name in Arabic *</label>
                             <input type="text" placeholder="Full name in Arabic" required dir="rtl">
                         </div>
                         <div>
-                            <label for="">Full name in English *</label>
+                            <label>Full name in English *</label>
                             <input type="email" placeholder="Full name in English" required id="name">
                         </div>
 
@@ -216,8 +231,8 @@
 
 
                             <div class="country">
-                                <label for="">Country *</label>
-                                <select name="" id="country">
+                                <label>Country *</label>
+                                <select form="" id="country">
                                     <option value="">...</option>
                                     <option value="Egypt">Egypt</option>
                                     <option value="Palestine">Palestine</option>
@@ -243,8 +258,8 @@
                             </div>
 
                             <div class="country">
-                                <label for="">Description of the housing address *</label>
-                                <textarea name="" id="housing-address" cols="30" rows="4" dir="auto"
+                                <label>Description of the housing address *</label>
+                                <textarea id="housing-address" cols="30" rows="4" dir="auto"
                                     placeholder="Description of the housing address" style="padding: 5px;"></textarea>
                             </div>
 
@@ -253,7 +268,7 @@
                         <div>
                             <label for="">phone number, Country Flag and, country code *</label>
                             <div>
-                                <select name="" required>
+                                <select form="" required>
                                     <option value="">...</option>
                                     <option value="eg">eg</option>
                                     <option value="usa">usa</option>
@@ -262,7 +277,7 @@
                                     <option value="hh">hh</option>
                                     <option value="mm">mm</option>
                                 </select>
-                                <select name="" required>
+                                <select form="" required>
                                     <option value="">...</option>
                                     <option value="+2">+2</option>
                                     <option value="+95">+95</option>
@@ -278,11 +293,15 @@
 
                         </div>
 
-
+                        <div class="btn-group">
+                            <button type="button" class="btn-prev" onclick="prevStep()">Back</button>
+                            <button type="submit" class="btn-next" disabled>Next Step</button>
+                            <button type="button" class="btn-submit" id="submit">Submit</button>
+                        </div>
                     </div>
 
                     <!-- form-Five -->
-                    <div class="form-Five form-step ">
+                    <div class="form-Five form-step " id="step5">
 
                         <div class="bg-svg"></div>
                         <h2>persnol information </h2>
@@ -323,15 +342,28 @@
                                 </table>
                             </div> -->
                         </div>
+
+                        <div class="btn-group">
+                            <button type="button" class="btn-prev" onclick="prevStep()">Back</button>
+                            <button type="submit" class="btn-next" onclick="validateStep(5)">Order confirmation</button>
+                            <button type="submit" class="btn-next cancel-order">Cancel order</button>
+                        </div>
                     </div>
 
-                    <div class="btn-group">
-                        <button type="button" class="btn-prev" disabled>Back</button>
-                        <button type="button" class="btn-next">Next Step</button>
-                        <button type="button" class="btn-submit" id="submit">Submit</button>
+                    <!-- form-six -->
+                    <div class="form-six form-step " id="step6">
+
+                        <div class="Confirmation-message">
+                            The application has been received and is being reviewed the application number and status
+                            <br> (is being reviewed)
+                        </div>
+
                     </div>
+
                 </form>
             </div>
+
+
         </div>
     </div>
 
