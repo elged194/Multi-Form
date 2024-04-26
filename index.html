@@ -55,6 +55,8 @@
                     <div id="ShowError"> please fill in Step..! </div>
                     <!-- Show error password Message -->
                     <div id="errorPass"> The password does not match, please check..! </div>
+                    <!-- Show Success Message  -->
+                    <div id="Success"> Your request has been sent successfully.. </div>
 
                     <!-- form-one 1-->
                     <div class="form-one form-step active " id="step1">
@@ -146,7 +148,8 @@
 
                         <div>
                             <label for="">Photos of each piece</label>
-                            <input type="file" id="Photos_piece">
+                            <input type="file" id="Photos_piece" multiple>
+                            <div id="viewUpload"></div>
                         </div>
 
                         <div class="btn-group">
@@ -229,6 +232,7 @@
                             <label>Full name in Arabic *</label>
                             <input type="text" placeholder="Full name in Arabic" required dir="rtl">
                         </div>
+
                         <div>
                             <label>Full name in English *</label>
                             <input type="email" placeholder="Full name in English" required id="name">
@@ -239,7 +243,7 @@
 
                             <div class="country">
                                 <label>Country *</label>
-                                <select form="" id="country">
+                                <select form="" id="country" required>
                                     <option value="">...</option>
                                     <option value="Egypt">Egypt</option>
                                     <option value="Palestine">Palestine</option>
@@ -266,8 +270,9 @@
 
                             <div class="country">
                                 <label>Description of the housing address *</label>
+
                                 <textarea id="housing-address" cols="30" rows="4" dir="auto"
-                                    placeholder="Description of the housing address" style="padding: 5px;"></textarea>
+                                    placeholder="Description of the housing address" style="padding: 5px;" required></textarea>
                             </div>
 
                         </div>

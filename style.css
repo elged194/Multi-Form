@@ -355,7 +355,8 @@ form .cancel-order:hover {
 /* ----- / Show Error / ----------- */
 
 #ShowError,
-#errorPass {
+#errorPass ,
+#Success {
     min-width: 289px;
     margin-left: -125px;
     background-color: #cd5656;
@@ -372,8 +373,18 @@ form .cancel-order:hover {
     display: none;
 }
 
+#Success{
+    border: 2px solid #198754;
+    background-color: white;
+    color: #198754;
+    font-weight: 900;
+    /* bottom: 45px;
+    right: 15px; */
+}
+
 #ShowError.show,
-#errorPass.show {
+#errorPass.show,
+#Success.show{
     display: block;
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
@@ -426,8 +437,6 @@ form .cancel-order:hover {
         opacity: 0;
     }
 }
-
-
 
 
 /* ----- / Confirmation message / ----------- */
@@ -584,6 +593,12 @@ form .cancel-order:hover {
         left: 5%;
         margin: 0;
         top: 36px;
+    }
+
+    #Success{
+        left: 130px;
+        font-size: 13px;
+        width: 97%;
     }
 
     .information {
