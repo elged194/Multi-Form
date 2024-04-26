@@ -2,7 +2,7 @@
 let currentStep = 1;
 
 function validateStep(step) {
-  if (step === 1) {
+  if (step === 1) { // if step is 1
     const input1 = document.querySelectorAll(".form-one [required]");
     let isValid = true;
 
@@ -18,7 +18,9 @@ function validateStep(step) {
     }
 
     document.querySelector(".step2").classList.add("active");
-  } else if (step === 2) {
+
+  } else if (step === 2) { // if step is 2
+
     const input2 = document.querySelectorAll(".form-two [required]");
     let isValid = true;
 
@@ -34,7 +36,9 @@ function validateStep(step) {
     }
 
     document.querySelector(".step3").classList.add("active"); // add active class to step 3
-  } else if (step === 3) {
+
+  } else if (step === 3) { // if step is 3
+
     const input3 = document.querySelectorAll(".form-three [required]");
     const pass = document.getElementById("password");
     const conf_pass = document.getElementById("Confirm-Password");
@@ -56,7 +60,9 @@ function validateStep(step) {
     }
 
     document.querySelector(".step4").classList.add("active"); //add active class to step 4
-  } else if (step === 4) {
+
+  } else if (step === 4) {// if step is 4
+
     const input4 = document.querySelectorAll(".form-four [required]");
     let isValid = true;
 
@@ -72,7 +78,9 @@ function validateStep(step) {
     }
 
     document.querySelector(".step5").classList.add("active"); // add active class to step 5
-  } else if (step === 5) {
+
+  } else if (step === 5) { // if step is 5
+    
     const input5 = document.querySelectorAll(".form-Five [required]");
     let isValid = true;
 
@@ -87,7 +95,7 @@ function validateStep(step) {
       return;
     }
 
-    document.querySelector(".progress-steps").style.display = "none"; // hide progress bar
+    document.querySelector(".progres-steps").style.display = "none"; // hide progres bar
   }
 
   showStep(step + 1);
