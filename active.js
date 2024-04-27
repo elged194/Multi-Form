@@ -2,8 +2,8 @@
 let currentStep = 1;
 
 function validateStep(step) {
+  // if step is 1
   if (step === 1) {
-    // if step is 1
     const input1 = document.querySelectorAll(".form-one [required]"); // get all required inputs
     let isValid = true;
 
@@ -20,10 +20,13 @@ function validateStep(step) {
     }
 
     document.querySelector(".step2").classList.add("active"); // add active class to step 2
-  } else if (step === 2) {
+
     // if step is 2
-    const input2 = document.querySelectorAll(".form-two [required]"); // get all required inputs
+  } else if (step === 2) {
+    const input2 = document.querySelectorAll(".form-two [required]"); //get all required inputs
     let isValid = true;
+
+    // Checking all required fields
     input2.forEach((input) => {
       if (!input.value.trim()) {
         isValid = false;
@@ -33,17 +36,19 @@ function validateStep(step) {
     if (!isValid) {
       ShowError(); // show error
       return;
-    } else if (!updateType_model()) {
+    }
+
+    // if the list is empty
+    const personList = document.getElementById("personList");
+    if (personList.children.length === 0) {
+      alert("The list is empty. Please add at least one item.");
       return;
     }
 
-    console.log(updateType_model());
-    console.log(isValid);
+    document.querySelector(".step3").classList.add("active"); // إضافة الفئة النشطة إلى الخطوة 3
 
-    document.querySelector(".step3").classList.add("active"); // add active class to step 3
-  } else if (step === 3) {
     // if step is 3
-
+  } else if (step === 3) {
     const input3 = document.querySelectorAll(".form-three [required]");
     const pass = document.getElementById("password"); // get password input
     const conf_pass = document.getElementById("Confirm-Password"); // get confirm password input
@@ -66,9 +71,9 @@ function validateStep(step) {
     }
 
     document.querySelector(".step4").classList.add("active"); //add active class to step 4
-  } else if (step === 4) {
-    // if step is 4
 
+    // if step is 4
+  } else if (step === 4) {
     const input4 = document.querySelectorAll(".form-four [required]");
     let isValid = true;
 
@@ -125,15 +130,22 @@ function repeater() {
     alert("Please enter the name of the piece and the number of pieces");
     return;
   }
-  // else if (!updateType_model()) {
-  //   alert('The minimum number of audible pieces is 10 pieces');
-  //   return;
-  // }
-  // Check if updateType_model() returns false
 
-  // Create an li element to display the piece data and add it to the list
+  // Check if the number of pieces is empty
+  if (number_item.trim() === "") {
+    alert("Please enter the number of pieces");
+    return;
+  }
+
+  // if the updateType_model() function returns false, then the item is not updated
   const listItem = document.createElement("li");
-  listItem.textContent = `${number_item} piece : ${item_name}`;
+  if (!updateType_model()) {
+    return;
+  } else {
+    // Add the item name and the number of pieces to the list item
+    listItem.textContent = `${number_item} piece : ${item_name}`;
+    3;
+  }
 
   // Add the "Delete" button with image to the new item in the list
   const deleteButton = document.createElement("button");
@@ -158,18 +170,7 @@ function deletePerson(listItem) {
   listItem.remove();
 }
 
-// ----------------------- / update serial number && update number item /----------------------
-// ------- update serial number ----------
-type_model.onchange = () => {
-  if (type_model.value === "Companies") {
-    serial_number.setAttribute("required");
-  } else {
-    serial_number.removeAttribute("required");
-  }
-};
-
 // -------- update number item --------
-let updateTypeCalled = false;
 
 function updateType_model() {
   let isValid = true;
@@ -195,15 +196,33 @@ function updateType_model() {
   return isValid;
 }
 
-// ----------------------- / update Type model ==> Car body number /----------------------
-type_model.onchange = () => {
-  if (type_model.value === "Singles") {
-    // update car body number
-    body_number.setAttribute("required");
-  } else {
-    body_number.removeAttribute("required");
+// ----------------------- / update_Serial_Number ==> Car Serial Number /----------------------
+function update_Serial_Number() {
+  if (type_model.value === "Companies") {
+    serial_number.setAttribute("required", ""); // add required attribute
+  } else if (type_model.value === "Singles") {
+    serial_number.removeAttribute("required"); // remove required attribute
   }
-};
+}
+
+type_model.addEventListener("change", update_Serial_Number);
+
+update_Serial_Number();
+
+// ----------------------- / update_Serial_body ==> Car body number /----------------------
+
+function update_Serial_body() {
+  if (type_model.value === "Companies") {
+    body_number.removeAttribute("required"); // remove required attribute
+  } else if (type_model.value === "Singles") {
+    body_number.setAttribute("required", ""); // add required attribute
+  }
+}
+
+type_model.addEventListener("change", update_Serial_body);
+
+update_Serial_body();
+
 // ------------------- / Show Error Snackbar / ------------------------------
 // show the error required
 function ShowError() {

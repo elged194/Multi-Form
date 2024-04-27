@@ -180,6 +180,7 @@ form>div>div:not(.checkbox) ,.repeater > div{
     flex-direction: column;
     margin-bottom: 2em;
 }
+/* start repeater  */
 .repeater >div li{
     background-color: #dee2e6;
     border-radius: 5px;
@@ -194,6 +195,7 @@ form>div>div:not(.checkbox) ,.repeater > div{
     border: none;
     margin-right: 5px;
 }
+/* end repeater  */
 
 form :where(input.select) {
     height: 40px;
