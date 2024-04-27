@@ -189,12 +189,13 @@ form>div>div:not(.checkbox) ,.repeater > div{
     justify-content: space-between;
     margin-bottom: 5px;
 }
-.repeater > div li button{
+.repeater .repeater-item > button{
     width: 21px;
     background-color: transparent;
     border: none;
     margin-right: 5px;
 }
+
 /* end repeater  */
 
 form :where(input.select) {
@@ -319,7 +320,7 @@ form .cancel-order:hover {
     padding: 0;
 }
 
-#show {
+.invoice {
     border: 1px solid;
     padding: 15px;
     border-radius: 4px;
@@ -354,6 +355,12 @@ form .cancel-order:hover {
     width: 100%;
     font-size: 13px;
     margin-top: 10px;
+}
+
+/* show-table */
+.show-table{
+    max-width: 100%;
+    overflow: scroll;
 }
 
 .form-Five td,
@@ -521,19 +528,6 @@ form .cancel-order:hover {
         width: 100%;
     }
 
-    table {
-        display: grid;
-    }
-
-    tr {
-        display: grid;
-        width: 50%;
-    }
-
-    tbody {
-        display: flex;
-    }
-
     .btn-group {
         flex-direction: column !important;
     }
@@ -575,6 +569,9 @@ form .cancel-order:hover {
         margin-bottom: 3px;
     }
 
+    .information  h5{
+        font-size: 0.85rem;
+    }
 }
 
 /* ----- / screen Mobile / ----------- */
@@ -623,5 +620,8 @@ form .cancel-order:hover {
 
     .information h5 {
         font-size: 15px;
+    }
+    .form-Five .information>div{
+        width: 100%;
     }
 }

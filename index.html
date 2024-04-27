@@ -118,26 +118,20 @@
                     </div>
 
                     <!-- form-two 2-->
-                    <div class="form-two form-step " id="step2">
+                    <div class="form-two form-step  " id="step2">
                         <h2>Contact </h2>
 
                         <div class="repeater mb-1">
-                            <div>
-                                <label>Item Name *</label>
-                                <input type="text" placeholder="Plot Name" id="itemName">
-                            </div>
+                            <label for="">Number of Item and Item Name *</label>
+                            <div id="category-group">
+                                <div class="repeater-item">
+                                    <input type="number"  placeholder="Number " id="numberItem" style="width: 22%;" min="1"/>
+                                    <input type="text" placeholder="Plot Name" id="itemName" style="width: 70%;"/>
+                                    <button type="button" onclick="deleteItemRepeater(this)"><img src="img/delete.png" ></button>
 
-                            <div>
-                                <label for="">Number of Item *</label>
-                                <input type="number" min="1" placeholder="Number of Pieces" id="numberItem">
+                                </div>
                             </div>
-                            <button id="add-" type="button" onclick="repeater()" class="rounded-1">Add </button>
-
-                            <div>
-                                <label>List Applications</label>
-                                <ul id="personList"></ul>
-                            </div>
-
+                            <input type="button" onclick="repeater()" value="Add"/>
                         </div>
 
                         <div>
@@ -248,8 +242,6 @@
                         </div>
 
                         <div>
-
-
                             <div class="country">
                                 <label>Country *</label>
                                 <select form="" id="country" required>
@@ -323,12 +315,33 @@
                     </div>
 
                     <!-- form-Five 5-->
-                    <div class="form-Five form-step " id="step5">
+                    <div class="form-Five form-step  " id="step5">
 
                         <h2>persnol information </h2>
                         <p>Enter your persnol information correctiy</p>
-                        <div id="show">
+                        <div class="invoice">
+                            <div class="logo"><a href=""><span>.Web</span>Form</a></div>
+                            <div class="information row p-0 m-0" id="information">
+                                
+                            </div>
 
+                            <hr>
+
+                            <div class="show-table">
+                                <table id="customers">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Number of Items </th>
+                                        <th>Name Item</th>
+                                        <th>Shipping Type</th>
+                                        <th>serial number of item</th>
+                                        <th>Chassis number</th>
+                                    </tr>
+                                    <tbody id="show">
+
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
 
                         <div class="btn-group">

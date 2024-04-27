@@ -34,134 +34,73 @@ let invoice = [];
 let isDataAdded = false;
 
 submit.onclick = () => {
-  validateStep(4);
+    validateStep(4);
 
-  let newInvoice = {
-    // -------- Form One -----------
-    type_model: type_model.value,
-    car_maker: car_maker.value,
-    car_model: car_model.value,
-    year: year.value,
-    // -------- Form Two -----------
-    item_name: item_name.value,
-    number_Item: number_Item.value,
-    serial_number: serial_number.value,
-    body_number: body_number.value,
-    Plot_Descr: Plot_Descr.value,
-    // -------- Form three -----------
-    email: email.value,
-    phone_number: phone_number.value,
-    country_phone: country_phone.value,
-    country_code: country_code.value,
-    // -------- Form four -----------
-    type_shipment: type_shipment.value,
-    fool_name: fool_name.value,
-    country: country.value,
-    city: city.value,
-    neighborhood: neighborhood.value,
-    box_number: box_number.value,
-    address_description: address_description.value,
-  };
+    if (!isDataAdded) {
 
-  if (!isDataAdded) {
-    invoice.push(newInvoice); //Add Data Invoice Array of Object
+    let newInvoice = {
+        type_model: type_model.value,
+        car_maker: car_maker.value,
+        car_model: car_model.value,
+        year: year.value,
+        item_name: item_name.value,
+        number_Item: number_Item.value,
+        serial_number: serial_number.value,
+        body_number: body_number.value,
+        Plot_Descr: Plot_Descr.value,
+        email: email.value,
+        phone_number: phone_number.value,
+        country_phone: country_phone.value,
+        country_code: country_code.value,
+        type_shipment: type_shipment.value,
+        fool_name: fool_name.value,
+        country: country.value,
+        city: city.value,
+        neighborhood: neighborhood.value,
+        box_number: box_number.value,
+        address_description: address_description.value,
+    };
 
-    // -------- Invoice Array of Object -----------
-    const show = invoice.map((e) => {
-      return `
-    <div class="logo"><a href=""><span>.Web</span>Form</a></div>
-    <div class="information row p-0 m-0">
-        <div dir="ltr" class="col-6 p-0 m-0">
-            <h5> ${e.country} , ${e.city} , ${e.neighborhood} , ${e.body_number} </h5>
-            <p>
-                ${e.address_description}
-            </p>
-        </div>
-        <div dir="rtl" class="col-6 p-0 m-0">
-            <h5> ${e.fool_name}</h5>
-            <h5> ${e.email}</h5>
-            <h5> ${e.country_code}  ${e.phone_number}</h5>
-        </div>
-    </div>
-    <hr>
+    invoice.push(newInvoice); // إضافة بيانات الفاتورة إلى مصفوفة الفواتير
 
-    <div class="">
-        <table id="customers">
-            <tr>
-                <th>Number of Items </th>
-                <th>Name Item</th>
-                <th>Shipping Type</th>
-                <th>serial number of item</th>
-                <th>Chassis number</th>
-            </tr>
-            <tr>
-                <td>${e.number_Item} </td>
-                <td>${e.item_name}</td>
-                <td>${e.type_shipment}</td>
-                <td>${e.serial_number}</td>
-                <td>${e.body_number}</td>
-            </tr>
-        </table>
-    </div>
-    `;
+    const showData = invoice.map((e) => {
+        return `
+            <div dir="ltr" class="col-6 p-0 m-0">
+                <h5> ${e.country} , ${e.city} , ${e.neighborhood} , ${e.body_number} </h5>
+                <p>
+                    ${e.address_description}
+                </p>
+            </div>
+            <div dir="rtl" class="col-6 p-0 m-0">
+                <h5> ${e.fool_name}</h5>
+                <h5> ${e.email}</h5>
+                <h5> ${e.country_code} ${e.phone_number}</h5>
+            </div>
+            `;
     });
+    document.getElementById("information").innerHTML = showData.join("");
 
-    document.getElementById("show").innerHTML = show;
-    // -------- Invoice Array of Object -----------
+    let table = "<table>"; // بدء جدول HTML
 
-    isDataAdded = true; 
-
-  }else if(isDataAdded === true) { // If Data Added
-
-    // -------- Invoice Array of Object -----------
-
-    invoice = [] // Empty Invoice Array of Object
-    
-    invoice.push(newInvoice); //Add Data Invoice Array of Object
-
-    // -------- Invoice Array of Object -----------
-    const show = invoice.map((e) => { // Show Data Invoice Array of Object
-      return `
-    <div class="logo"><a href=""><span>.Web</span>Form</a></div>
-    <div class="information row p-0 m-0">
-        <div dir="ltr" class="col-6 p-0 m-0">
-            <h5> ${e.country} , ${e.city} , ${e.neighborhood} , ${e.body_number} </h5>
-            <p>
-                ${e.address_description}
-            </p>
-        </div>
-        <div dir="rtl" class="col-6 p-0 m-0">
-            <h5> ${e.fool_name}</h5>
-            <h5> ${e.email}</h5>
-            <h5> ${e.country_code}  ${e.phone_number}</h5>
-        </div>
-    </div>
-    <hr>
-
-    <div class="">
-        <table id="customers">
+    for (let i = 0; i < invoice.length; i++) {
+        // تكوين صف لكل بيانات فاتورة
+        table += `
             <tr>
-                <th>Number of Items </th>
-                <th>Name Item</th>
-                <th>Shipping Type</th>
-                <th>serial number of item</th>
-                <th>Chassis number</th>
+                <td>${i + 1}</td>
+                <td>${invoice[i].item_name}</td>
+                <td>${invoice[i].number_Item}</td>
+                <td>${invoice[i].type_shipment}</td>
+                <td>${invoice[i].serial_number}</td>
+                <td>${invoice[i].body_number}</td>
             </tr>
-            <tr>
-                <td>${e.number_Item} </td>
-                <td>${e.item_name}</td>
-                <td>${e.type_shipment}</td>
-                <td>${e.serial_number}</td>
-                <td>${e.body_number}</td>
-            </tr>
-        </table>
-    </div>
-    `;
-    });
+          `;
+    }
 
-    document.getElementById("show").innerHTML = show; // Show Data in HTML
+    table += "</table>"; // إنهاء جدول HTML
 
-    // ---------------------
-    isDataAdded = true; // Data Added
-  }
+    // إضافة الجدول إلى عنصر العرض
+    document.getElementById("show").innerHTML = table;
+
+    isDataAdded = true;
+}
 };

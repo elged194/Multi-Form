@@ -22,7 +22,16 @@ function validateStep(step) {
     document.querySelector(".step2").classList.add("active"); // add active class to step 2
 
     // if step is 2
-  } else if (step === 2) {
+  } 
+  
+  
+  
+  
+  
+  
+  
+  
+  else if (step === 2) {
     const input2 = document.querySelectorAll(".form-two [required]"); //get all required inputs
     let isValid = true;
 
@@ -39,16 +48,38 @@ function validateStep(step) {
     }
 
     // if the list is empty
-    const personList = document.getElementById("personList");
-    if (personList.children.length === 0) {
+
+    if (item_name.value.trim() === '' || number_Item.value.trim() === '') {
       alert("The list is empty. Please add at least one item.");
       return;
     }
 
+    if (!updateType_model()) {
+      return;
+    }
+
+
+
     document.querySelector(".step3").classList.add("active"); // إضافة الفئة النشطة إلى الخطوة 3
 
     // if step is 3
-  } else if (step === 3) {
+  } 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  else if (step === 3) {
     const input3 = document.querySelectorAll(".form-three [required]");
     const pass = document.getElementById("password"); // get password input
     const conf_pass = document.getElementById("Confirm-Password"); // get confirm password input
@@ -117,58 +148,62 @@ del_order.onclick = () => {
   }, 500);
 };
 
+
+
+
+
+
+
+
+
+
+
+
+
 // ----------------------- / Repeater /----------------------
-
 function repeater() {
-  // Get the value of the item name and the number of pieces from the input fields
-  const item_name = document.getElementById("itemName").value;
-  const number_item = document.getElementById("numberItem").value;
-  const personList = document.getElementById("personList");
 
-  // Check if the input fields are empty
-  if (item_name.trim() === "" || number_item.trim() === "") {
-    alert("Please enter the name of the piece and the number of pieces");
-    return;
-  }
+  const categoryGroup = document.getElementById("category-group");
+  const newItem = document.createElement("div");
+  newItem.classList.add("repeater-item");
 
-  // Check if the number of pieces is empty
-  if (number_item.trim() === "") {
-    alert("Please enter the number of pieces");
-    return;
-  }
+newItem.innerHTML = `
+    <input type="number"  placeholder="Number " id="numberItem" style="width: 22%;" min="1"/>
+    <input type="text" placeholder="Plot Name" id="itemName" style="width: 70%;"/>
+    <button type="button" onclick="deleteItemRepeater(this)"><img src="img/delete.png" ></button>
+    `;    
+    if (!updateType_model()) {
+      return;
+    } else {
+      categoryGroup.appendChild(newItem);
+    }
 
-  // if the updateType_model() function returns false, then the item is not updated
-  const listItem = document.createElement("li");
-  if (!updateType_model()) {
-    return;
-  } else {
-    // Add the item name and the number of pieces to the list item
-    listItem.textContent = `${number_item} piece : ${item_name}`;
-    3;
-  }
-
-  // Add the "Delete" button with image to the new item in the list
-  const deleteButton = document.createElement("button");
-  deleteButton.classList.add("delete-button"); // Add a class for styling
-  const deleteImage = document.createElement("img");
-  deleteImage.src = "img/delete.png"; // Replace 'delete_icon.png' with your image path
-  deleteImage.alt = "Delete";
-  deleteButton.appendChild(deleteImage);
-  deleteButton.onclick = function () {
-    deletePerson(listItem);
-  };
-  listItem.appendChild(deleteButton);
-  personList.appendChild(listItem);
-
-  // Clear the content of the input fields after adding
-  document.getElementById("itemName").value = "";
-  document.getElementById("numberItem").value = "";
 }
 
-// Function to delete item
-function deletePerson(listItem) {
-  listItem.remove();
+function deleteItemRepeater(button) {
+  var item = button.parentNode;
+  item.parentNode.removeChild(item);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // -------- update number item --------
 
