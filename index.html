@@ -121,14 +121,23 @@
                     <div class="form-two form-step " id="step2">
                         <h2>Contact </h2>
 
-                        <div>
-                            <label>Item Name *</label>
-                            <input type="text" placeholder="Plot Name" id="itemName" required>
-                        </div>
+                        <div class="repeater mb-1">
+                            <div>
+                                <label>Item Name *</label>
+                                <input type="text" placeholder="Plot Name" id="itemName" required>
+                            </div>
 
-                        <div>
-                            <label for="">Number of Item *</label>
-                            <input type="number" min="1" placeholder="Number of Pieces" id="numberItem" required>
+                            <div>
+                                <label for="">Number of Item *</label>
+                                <input type="number" min="1" placeholder="Number of Pieces" id="numberItem" required>
+                            </div>
+                            <button id="add-" type="button" onclick="repeater()" class="rounded-1">Add </button>
+                            
+                            <div>
+                                <label>List Applications</label>
+                                <ul id="personList"></ul>
+                            </div>
+
                         </div>
 
                         <div>
@@ -272,7 +281,8 @@
                                 <label>Description of the housing address *</label>
 
                                 <textarea id="housing-address" cols="30" rows="4" dir="auto"
-                                    placeholder="Description of the housing address" style="padding: 5px;" required></textarea>
+                                    placeholder="Description of the housing address" style="padding: 5px;"
+                                    required></textarea>
                             </div>
 
                         </div>

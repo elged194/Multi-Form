@@ -175,10 +175,24 @@ form>div p {
     margin-bottom: 2em;
 }
 
-form>div>div:not(.checkbox) {
+form>div>div:not(.checkbox) ,.repeater > div{
     display: flex;
     flex-direction: column;
     margin-bottom: 2em;
+}
+.repeater >div li{
+    background-color: #dee2e6;
+    border-radius: 5px;
+    padding: 1px 5px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.repeater > div li button{
+    width: 21px;
+    background-color: transparent;
+    border: none;
+    margin-right: 5px;
 }
 
 form :where(input.select) {
