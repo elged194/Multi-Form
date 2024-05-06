@@ -22,16 +22,7 @@ function validateStep(step) {
     document.querySelector(".step2").classList.add("active"); // add active class to step 2
 
     // if step is 2
-  } 
-  
-  
-  
-  
-  
-  
-  
-  
-  else if (step === 2) {
+  } else if (step === 2) {
     const input2 = document.querySelectorAll(".form-two [required]"); //get all required inputs
     let isValid = true;
 
@@ -49,7 +40,7 @@ function validateStep(step) {
 
     // if the list is empty
 
-    if (item_name.value.trim() === '' || number_Item.value.trim() === '') {
+    if (item_name.value.trim() === "" || number_Item.value.trim() === "") {
       alert("The list is empty. Please add at least one item.");
       return;
     }
@@ -58,28 +49,10 @@ function validateStep(step) {
       return;
     }
 
-
-
     document.querySelector(".step3").classList.add("active"); // إضافة الفئة النشطة إلى الخطوة 3
 
     // if step is 3
-  } 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  else if (step === 3) {
+  } else if (step === 3) {
     const input3 = document.querySelectorAll(".form-three [required]");
     const pass = document.getElementById("password"); // get password input
     const conf_pass = document.getElementById("Confirm-Password"); // get confirm password input
@@ -120,16 +93,17 @@ function validateStep(step) {
     }
 
     document.querySelector(".step5").classList.add("active"); // add active class to step 5
-  } else if (step === 5) {
-    // if step is 5
 
+    // if step is 5
+  } else if (step === 5) {
     success_message(); // show success message
 
     document.querySelector(".progres-steps").style.display = "none"; // hide progres bar
   }
 
-  showStep(step + 1);
+  showStep(step + 1); // show next step
 }
+
 function showStep(step) {
   document.getElementById("step" + currentStep).style.display = "none"; // hide current step
   document.getElementById("step" + step).style.display = "block"; // show next step
@@ -142,71 +116,42 @@ function prevStep() {
 
 // ------------------- / cancel order / ------------------------------
 const del_order = document.querySelector(".cancel-order");
+
 del_order.onclick = () => {
   setTimeout(() => {
     window.location.reload(); // reload page
   }, 500);
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
 // ----------------------- / Repeater /----------------------
 function repeater() {
-
   const categoryGroup = document.getElementById("category-group");
   const newItem = document.createElement("div");
-  newItem.classList.add("repeater-item");
 
-newItem.innerHTML = `
+  newItem.classList.add("repeater-item"); // Add "repeater-item" class to the new element
+
+  // Set HTML elements inside the new element
+  newItem.innerHTML = `
     <input type="number"  placeholder="Number " id="numberItem" style="width: 22%;" min="1"/>
     <input type="text" placeholder="Plot Name" id="itemName" style="width: 70%;"/>
     <button type="button" onclick="deleteItemRepeater(this)"><img src="img/delete.png" ></button>
-    `;    
-    if (!updateType_model()) {
-      return;
-    } else {
-      categoryGroup.appendChild(newItem);
-    }
+  `;
 
+  // Check the result of the model update
+  if (!updateType_model()) {
+    return; // If there is an error in the update, return without adding the item
+  } else {
+    // If the update is successful, append the new item
+    categoryGroup.appendChild(newItem);
+  }
 }
 
 function deleteItemRepeater(button) {
-  var item = button.parentNode;
-  item.parentNode.removeChild(item);
+  var item = button.parentNode; // Get the parent element containing the clicked button
+  item.parentNode.removeChild(item); // Remove this item from the UI
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// -------- update number item --------
-
+// --------------------/ update number item /---------------------
 function updateType_model() {
   let isValid = true;
 
@@ -259,6 +204,7 @@ type_model.addEventListener("change", update_Serial_body);
 update_Serial_body();
 
 // ------------------- / Show Error Snackbar / ------------------------------
+
 // show the error required
 function ShowError() {
   let snack = document.getElementById("ShowError");
@@ -286,7 +232,7 @@ function success_message() {
   }, 3000);
 }
 
-// -------------------- update Image -----------------------------------
+// -------------------- update Image Car -----------------------------------
 
 function updateImage() {
   // update the image of the car
@@ -330,17 +276,17 @@ Photos_piece.onchange = function () {
   const files = this.files;
   const view_upload = document.getElementById("viewUpload");
 
+  // remove all childs
   while (view_upload.firstChild) {
-    // remove all childs
     view_upload.removeChild(view_upload.firstChild);
   }
 
+  // loop through the files
   for (const file of files) {
-    // loop through the files
-    const reader = new FileReader(); // create a reader
+    const reader = new FileReader(); // create a new reader file
 
+    // when the reader is loaded
     reader.onload = function (event) {
-      // when the reader is loaded
       const img = document.createElement("img"); // create an image
 
       img.src = event.target.result; // set the source to the image
